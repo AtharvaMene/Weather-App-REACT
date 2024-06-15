@@ -4,8 +4,6 @@ import styles from "./../Design.css";
 const Report = () => {
   const [weather, setWeather] = useState([]);
 
-
-
   // async function getReport() {
   //   const options = {
   //     method: 'GET',
@@ -20,7 +18,7 @@ const Report = () => {
   //       'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com'
   //     }
   //   };
-    
+
   //   try {
   //     const response = await axios.request(options);
   //     setWeather([response.data]);
@@ -35,11 +33,11 @@ const Report = () => {
     <>
       {weather.map((report) => (
         <div id="whole-page">
-          <h1>{report.location.city}</h1>
           <div id="main-content">
             <h1>Weather Forecast</h1>
-            <div className="Header"><br />
-            <h1>{report.location.city}</h1>
+            <div className="Header">
+              <br />
+              <h1>{report.location.city}</h1>
               <button className="button">Change Location</button>
             </div>
 
@@ -50,11 +48,17 @@ const Report = () => {
               <h2>{report.current_observation.condition.text}</h2>
             </div>
             <div id="high-low">
-              <h3><span>High:</span>{report.forecasts[0].high}</h3>
-              <h3><span>Low:</span>{report.forecasts[0].low}</h3>
+              <h3>
+                <span>High:</span>
+                {report.forecasts[0].high}
+              </h3>
+              <h3>
+                <span>Low:</span>
+                {report.forecasts[0].low}
+              </h3>
             </div>
             <div id="degree">
-              <h1>{report.current_observation.condition.temperature}</h1>
+              <h1>{report.current_observation.condition.temperature}°c</h1>
             </div>
           </div>
           <div id="other-deatils">
@@ -72,7 +76,7 @@ const Report = () => {
                   <tbody>
                     <tr>
                       <td>{report.forecasts[0].day}</td>
-                      <td>{((report.forecasts[0].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>16/06/2024</td>
                       <td>{report.forecasts[0].text}</td>
                       <td>{report.forecasts[0].high}</td>
                       <td>{report.forecasts[0].low}</td>
@@ -80,35 +84,35 @@ const Report = () => {
 
                     <tr>
                       <td>{report.forecasts[1].day}</td>
-                      <td>{((report.forecasts[1].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>17/06/2024</td>
                       <td>{report.forecasts[1].text}</td>
                       <td>{report.forecasts[1].high}</td>
                       <td>{report.forecasts[1].low}</td>
                     </tr>
                     <tr>
                       <td>{report.forecasts[2].day}</td>
-                      <td>{((report.forecasts[2].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>18/06/2024</td>
                       <td>{report.forecasts[2].text}</td>
                       <td>{report.forecasts[2].high}</td>
                       <td>{report.forecasts[2].low}</td>
                     </tr>
                     <tr>
                       <td>{report.forecasts[3].day}</td>
-                      <td>{((report.forecasts[3].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>19/06/2024</td>
                       <td>{report.forecasts[3].text}</td>
                       <td>{report.forecasts[3].high}</td>
                       <td>{report.forecasts[3].low}</td>
                     </tr>
                     <tr>
                       <td>{report.forecasts[4].day}</td>
-                      <td>{((report.forecasts[4].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>20/06/2024</td>
                       <td>{report.forecasts[4].text}</td>
                       <td>{report.forecasts[4].high}</td>
                       <td>{report.forecasts[4].low}</td>
                     </tr>
                     <tr>
                       <td>{report.forecasts[5].day}</td>
-                      <td>{((report.forecasts[5].date)*1000).toLocaleString().split(',')[0]}</td>
+                      <td>21/06/2024</td>
                       <td>{report.forecasts[5].text}</td>
                       <td>{report.forecasts[5].high}</td>
                       <td>{report.forecasts[5].low}</td>
@@ -117,13 +121,29 @@ const Report = () => {
                 </table>
               </div>
             </div>
-             <div id="details">
-          <h2>Details</h2>
-          <div id="real-feel"><span>Real Feel</span> <span>{report.current_observation.condition.temperature}</span></div>
-                <div id="humidity"><span>Humidity</span><span>{report.current_observation.atmosphere.humidity}</span></div>
-                <div id="visibility"><span>Visibility</span><span>{report.current_observation.atmosphere.visibility}</span></div>
-                <div id="uv-index"><span>Wind Speed</span><span>{report.current_observation.wind.speed  }</span></div>
-        </div>
+            <div id="details">
+              <h2>Details</h2>
+              <div id="real-feel">
+                <span>Real Feel</span>{" "}
+                <span>
+                  {report.current_observation.condition.temperature}°c
+                </span>
+              </div>
+              <div id="humidity">
+                <span>Humidity</span>
+                <span>{report.current_observation.atmosphere.humidity}%</span>
+              </div>
+              <div id="visibility">
+                <span>Visibility</span>
+                <span>
+                  {report.current_observation.atmosphere.visibility}miles
+                </span>
+              </div>
+              <div id="uv-index">
+                <span>Wind Speed</span>
+                <span>{report.current_observation.wind.speed}mph WNW</span>
+              </div>
+            </div>
           </div>
         </div>
       ))}

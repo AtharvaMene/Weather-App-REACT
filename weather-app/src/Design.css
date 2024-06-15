@@ -5,13 +5,15 @@
   text-align: left;
   color: #333;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-size: cover;
 }
 
 /* Body styling */
 body {
-  background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient background */
+  /* background: linear-gradient(to right, #00c6ff, #0072ff); Gradient background */
+  background-image: url(../src/components/SearchBackground.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,7 +141,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid;
 }
 
 #details h2 {
@@ -149,7 +150,10 @@ body {
 }
 
 /* Detail items styling */
-#real-feel, #humidity, #visibility, #uv-index {
+#real-feel,
+#humidity,
+#visibility,
+#uv-index {
   height: 55px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -162,3 +166,26 @@ body {
   color: #007bff;
 }
 
+#real-feel {
+  background-image: url("./../src/components/thermometer.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#humidity {
+  background-image: url("./../src/components/humidity.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#visibility {
+  background-image: url("./../src/components/visibility.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#uv-index {
+  background-image: url("./../src/components/storm.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}

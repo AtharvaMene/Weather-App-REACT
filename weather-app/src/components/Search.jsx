@@ -19,9 +19,15 @@ const Search = () => {
       <div id="content">
         <form onSubmit={handleSubmit} action="">
           <h1>Weather Forecast</h1>
-          <input id="search-box" onChange={handleChange} name="search" type="text" />
+          <input
+            placeholder="Enter Your Location"
+            id="search-box"
+            onChange={handleChange}
+            name="search"
+            type="text"
+          />
           <br />
-          <input id="submit-button" type="submit" name=""/>
+          <input id="submit-button" type="submit" name="" />
         </form>
       </div>
     </div>
