@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+  import axios from "axios";
 import styles from "./../Design.css";
 const Report = () => {
   const [weather, setWeather] = useState([]);
 
-  // async function getReport() {
-  //   const options = {
-  //     method: 'GET',
-  //     url: 'https://yahoo-weather5.p.rapidapi.com/weather',
-  //     params: {
-  //       location: 'mumbai',
-  //       format: 'json',
-  //       u: 'c'
-  //     },
-  //     headers: {
-  //       'x-rapidapi-key': '20b81cf63bmsh47f8913184d1080p11480cjsnab7b26ac0926',
-  //       'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com'
-  //     }
-  //   };
+  async function getReport() {
+    const options = {
+      method: 'GET',
+      url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+      params: {
+        location: 'mumbai',
+        format: 'json',
+        u: 'c'
+      },
+      headers: {
+        'x-rapidapi-key': '20b81cf63bmsh47f8913184d1080p11480cjsnab7b26ac0926',
+        'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com'
+      }
+    };
 
-  //   try {
-  //     const response = await axios.request(options);
-  //     setWeather([response.data]);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-  // useEffect(() => {
-  //   getReport();
-  // }, []);
+    try {
+      const response = await axios.request(options);
+      setWeather([response.data]);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getReport();
+  }, []);
   return (
     <>
       {weather.map((report) => (
