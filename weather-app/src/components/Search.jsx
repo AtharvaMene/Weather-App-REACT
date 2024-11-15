@@ -9,6 +9,10 @@ const Search = () => {
   function handleSubmit() {
     router("/report-page");
   }
+
+  function handleClick(){
+    router("/contactus")
+  }
   function handleChange(event) {
     setSearch(event.target.value);
     console.log(event.target.value);
@@ -28,10 +32,16 @@ const Search = () => {
           />
           <br />
           <input id="submit-button" type="submit" name="" />
+
+
+      
         </form>
+
+        <a href="/report-page" >Atharva</a>
       </div>
     </div>
   );
 };
 
 export default Search;
+
